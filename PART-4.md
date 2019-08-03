@@ -112,13 +112,7 @@ Let's refactor any components that only have a `render()` method into functional
 
 Check in your browser to be sure the functionality hasn't changed.
 
-#### Step 2: Refactor `FilmRow`
-
-Follow the same steps to refactor the FilmRow component.
-
-Check in the browser to be sure the functionality hasn't changed.
-
-#### Step 3: Refactor `FilmDetails`
+#### Step 2: Refactor `FilmDetails`
 
 You haven't written out the `FilmDetails` component yet, but it currently only renders UI. Therefore, you can also make it a functional component.
 
