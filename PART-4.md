@@ -12,9 +12,9 @@ You're almost finished! Now, You need to:
 
 ### Task 1: Adding the API call
 
-API calls in React are handled using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) provided by modern browsers.
+We'll use the 3rd party [Axios API](https://www.npmjs.com/package/axios) to handle our API calls.
 
-You already have a function where you want the API call to go (`handleDetailsClick` - when a user clicks for details of a movie, you'll call the API to get those details), so your `fetch` task will work inside that function. You've set up the rest of your app correctly.
+You already have a function where you want the API call to go (`handleDetailsClick` - when a user clicks for details of a movie, you'll call the API to get those details), so your `axios` task will work inside that function. You've set up the rest of your app correctly.
 
 #### Step 1: Set up the API key
 
@@ -28,8 +28,9 @@ This step seems complicated, but it isn't! Just take it one step at a time. Beca
 
 - You'll need to install `dotenv`.
   - Run `npm install --save dotenv` on the command line to add the dependency to your `package.json` file
-  - Create a new file at the root of your project called `.env.local` (accept the system warning).
+  - Create a new file at the **root** of your project called `.env.local` (accept the system warning).
   - In your `.env.local` file, add the line `REACT_APP_TMDB_API_KEY=<Your TMDB API v3 KEY>`
+  - Make sure that you restart youor React server.
 
 *Note: The `.env.local` file is in your `.gitignore` by default when you create an app with `create-react-app`, so now your secret will never leak into your repository. It's important to note that since this is a front-end application, the built JavaScript will contain the key, which means end-users will be able to see it. However, that's fine for this practice app, since you'll only be running it locally.*
 
@@ -69,11 +70,12 @@ Now that you have the API key and URL set up, underneath the new URL variable, f
 ```JavaScript
 const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
 
-fetch(url).then(response => {
-  response.json().then(data => {
-    console.log(data) // take a look at what you get back!
+  axios({
+    method: 'GET',
+    url: url
+  }).then(response => {
+    console.log(response) // take a look at what you get back!
   })
-})
 ```
 
 Try clicking a movie row in your browser - the data for it should appear in the console.
@@ -83,9 +85,13 @@ Try clicking a movie row in your browser - the data for it should appear in the 
 Let's now set your `current` state to be the object you get back from TMDB. Move the `setState` call into the API call.
 
 ```JavaScript
-response.json().then(data => {
-  console.log(data)
-  this.setState({current: data})
+axios({
+  method: 'GET',
+  url: url
+}).then(response => {
+  console.log(response) // take a look at what you get back!
+  console.log(`Fetching details for ${film.title}`);
+  this.setState({ current: response.data })
 })
 ```
 
