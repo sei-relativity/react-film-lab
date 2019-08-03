@@ -70,12 +70,12 @@ Now that you have the API key and URL set up, underneath the new URL variable, f
 ```JavaScript
 const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
 
-  axios({
-    method: 'GET',
-    url: url
-  }).then(response => {
-    console.log(response) // take a look at what you get back!
-  })
+axios({
+  method: 'GET',
+  url: url
+}).then(response => {
+  console.log(response) // take a look at what you get back!
+})
 ```
 
 Try clicking a movie row in your browser - the data for it should appear in the console.
