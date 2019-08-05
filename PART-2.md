@@ -155,7 +155,7 @@ Inside of the `handleClick` method on the `Fave` component, use `this.setState` 
 
 
 
-#### Step 5: Set the `className` on `div` based on the `IsFave` state
+#### Step 4: Set the `className` on `div` based on the `IsFave` state
 
 You now want the `className` attribute on the `div` to dynamically update when the state is changed. Currently, the `className` on the `div` is `add_to_queue`. However, if the film is already favorited, then the film is already in the queue. Therefore, when `isFave: true`, the `className` should instead be `remove_from_queue`.
 
