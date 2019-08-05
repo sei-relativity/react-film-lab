@@ -135,24 +135,14 @@ The first state you'll add will be whether a currently selected film is a user's
 
 Add a constructor method to the `Fave` component. Remember that any time you add a constructor to a class-based component, you have to call the `super` method (and pass it `props`).
 
-#### Step 2: Bind your event handler to this component
 
-`this` binding can be a very finicky topic in JavaScript, but there are tricks to using it. To make your event handler work properly, you'll need to bind `this` to it. Add this line to your `Fave` component's constructor:
-
-```js
-// This binding is necessary to make `this` work in the callback
-this.handleClick = this.handleClick.bind(this)
-```
-
-This will be required for each event handler defined on any of your class-based components - so add it for all the `onClick` methods in your classes, in that class' constructor (make sure to change `handleClick` to the name of the function in that class).
-
-#### Step 3: Set the initial state
+#### Step 2: Set the initial state
 
 By default, a film is not a user's favorite.
 
 Back to the `Fave` component, set `this.state` to an object with the key `isFave` and the value `false`. This will set up the initial state of the component.
 
-#### Step 4: Set the state in your event handler
+#### Step 3: Set the state in your event handler
 
 When the user clicks the Fave icon/button to add or remove a film from their favorites list, the app should change the film's `isFave` state to reflect that.
 
