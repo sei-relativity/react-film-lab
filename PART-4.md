@@ -62,8 +62,9 @@ This is the URL to which you'll send your request to get detailed information ab
   - *For example, `const myString = "The " + film.id + " is great"` is the same as writing `const myString = "The ${film.id} is great"`.*
 
 
-#### Step 3: Make the API call
+#### Step 3: Make the API call with Axios
 
+Run `npm install axios` and add `import axios from "axios"` to the top of `App.js`.
 
 Now that you have the API key and URL set up, underneath the new URL variable, fetch the API.
 
