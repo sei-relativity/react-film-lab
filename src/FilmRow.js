@@ -9,8 +9,10 @@ class FilmRow extends Component {
       <>
         <div className="film-row">
           <FilmPoster posterPath={this.props.film.poster_path} />
-          <h1>{this.props.film.title}</h1>
-          <p>{releaseDate.getFullYear()}</p>
+          <div className="film-summary">
+            <h1>{this.props.film.title}</h1>
+            <p>{releaseDate.getFullYear()}</p>
+          </div>
         </div>
       </>
     );
