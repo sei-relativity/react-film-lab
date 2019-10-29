@@ -8,7 +8,7 @@ class FilmRow extends Component{
 
             <div className="film-summary">
             <h1>{this.props.film.title}</h1>
-            <p> {new Date(this.props.film.release_date).getFullYear}</p>
+            <p> {new Date(this.props.film.release_date).getFullYear()}</p>
             </div>
         </div>
             
