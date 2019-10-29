@@ -3,7 +3,7 @@ const TMDB = {
   films: [
     {
       "id": 346364,
-      "title": "It",
+      "title": "IT  ",
       "poster_path": "/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg",
       "backdrop_path": "/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
       "overview": "In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise.",
