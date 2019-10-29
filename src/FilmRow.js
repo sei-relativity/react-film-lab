@@ -9,6 +9,7 @@ class FilmRow extends Component {
   }
 
   render() {
+
     const releaseDate = new Date(this.props.film.release_date);
 
     return (

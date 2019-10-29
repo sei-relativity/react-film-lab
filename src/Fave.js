@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class Fave extends Component {
+
   constructor(props) {
     super(props);
 
@@ -21,9 +22,8 @@ class Fave extends Component {
   };
 
   render() {
-    const isFaveStatus = this.state.isFave
-      ? "remove_from_queue"
-      : "add_to_queue";
+
+    const isFaveStatus = this.state.isFave ? "remove_from_queue" : "add_to_queue";
 
     return (
       <>
