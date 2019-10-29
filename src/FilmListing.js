@@ -15,11 +15,17 @@ constructor(props){
   }
 
   render() {
+
+
+    let showFilms = [];
     const allFilms = this.props.movies.films.map((item, index) => {
-        return <FilmRow film={item} key={index}/>
+        return <FilmRow handleDetailsClick={this.props.handleDetailsClick} film={item} key={index} isFave={this.props.faves.includes(item)} onFaveToggle={() =>this.props.onFaveToggle(item)}/>
     })
-
-
+    const favesFilms = this.props.faves.map((item, index) => {
+      return <FilmRow handleDetailsClick={this.props.handleDetailsClick} film={item} key={index} isFave={this.props.faves.includes(item)} onFaveToggle={() =>this.props.onFaveToggle(item)}/>
+    })
+   this.state.filter === 'all' ? showFilms = allFilms : showFilms = favesFilms
+   
     return (
      <div className="film-list">
     <h1 className="section-title">FILMS</h1>
@@ -30,11 +36,11 @@ constructor(props){
         </div>
         <div onClick={() => this.handleFilterClick('faves')} className={`film-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`}>
             FAVES
-            <span className="section-count">0</span>
+            <span className="section-count">{this.props.faves.length}</span>
         </div>
     </div>
 
-    {allFilms}
+    {showFilms}
 </div>
     );
   }
