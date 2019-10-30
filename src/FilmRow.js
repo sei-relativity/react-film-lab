@@ -12,6 +12,7 @@ class FilmRow extends Component {
                 <Posterimage poster={this.props.film.poster_path}/>
 
                 <div className="film-summary">
+                    <div>film-summary</div>
                     <h1>{this.props.film.title}</h1>
 
                     <p>{(new Date(this.props.film.release_date).getFullYear())}</p>
