@@ -4,13 +4,12 @@ class FilmListing extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter : 'all'
+            filter: 'all'
         }
     }
     handleFilterClick = (filter) => {
-        console.log("this " + filter);
         this.setState({
-            filter : filter
+            filter: filter
         })
     }
     render() {
@@ -20,15 +19,15 @@ class FilmListing extends Component {
 
         return (
             <div className="film-list">
-                <h1 className="section-title">FILMS</h1>
+                <h1 className="section-title" >FILMS</h1>
                 <div className="film-list-filters">
-                    <div className="film-list-filter" onClick={() => this.handleFilterClick('ALL')}>
+                    <div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}>
                         ALL
-            <span className="section-count">{this.props.movies.films.length}</span>
+                        <span className="section-count">{this.props.movies.films.length}</span>
                     </div>
                     <div className="film-list-filter" onClick={() => this.handleFilterClick('faves')}>
                         FAVES
-            <span className="section-count">0</span>
+                        <span className="section-count">0</span>
                     </div>
                 </div>
 
