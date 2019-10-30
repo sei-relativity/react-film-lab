@@ -1,5 +1,5 @@
 import React from 'react';
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import FilmDetails from './FilmDetails';
 import FilmListing from './FilmListing';
@@ -14,3 +14,4 @@ function App() {
 );}
 
 export default App;
+
