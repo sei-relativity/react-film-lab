@@ -6,24 +6,19 @@ class Fave extends Component {
     super(props);
 
     this.state = {
-      isFave: false
+      // isFave: false
     };
   }
 
   handleClick = event => {
-    console.log("handling Fave click!");
     event.stopPropagation();
-
-    this.setState({
-      isFave: !this.state.isFave
-    });
-
-    console.log(this.state.isFave);
+    console.log("handling Fave click!");
+    this.props.onFaveToggleProp();
   };
 
   render() {
 
-    const isFaveStatus = this.state.isFave ? "remove_from_queue" : "add_to_queue";
+    const isFaveStatus = this.props.isFaveProp ? "remove_from_queue" : "add_to_queue";
 
     return (
       <>
