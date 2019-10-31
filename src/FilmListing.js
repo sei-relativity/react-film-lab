@@ -29,6 +29,7 @@ class FilmListing extends Component {
             return <FilmRow film={film}
             key={film.id}
             onFaveToggle={() => this.props.onFaveToggle(film)}
+            detailsClick={() => this.props.detailsClick(film)}
             isFave = {this.props.faves.includes(film)}/>
         })
 

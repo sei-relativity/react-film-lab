@@ -6,16 +6,18 @@ import Fave from './Fave';
 
 class FilmRow extends Component {
 
-    handleDetailsClick = (film) => {
-        console.log(`Fetching details for ${film.title}`);  
-    }
+    // handleDetailsClick = (film) => {
+    //     console.log(`Fetching details for ${film.title}`);  
+    // }
     
     render(){
         // console.log(this.props.isFave);
         
         return(
             <div className="film-row"
-             onClick={() => this.handleDetailsClick(this.props.film)}>
+
+            // this on click calls from this component
+             onClick={() => this.props.detailsClick(this.props.films)}>
                  
                 <FilmPoster img={this.props.film.poster_path} />
 
