@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
   constructor (props){
-    super (props)
+    super (props);
 
 
     this.state = {
@@ -19,30 +19,26 @@ class App extends Component {
 
   }
 
+
   handleFaveToggle = (film) => {
     // const faves = this.state.faves.slice(0);
-    const faves = [...this.state.faves]
+    const faves = [...this.state.faves];
     const filmIndex = faves.indexOf(film);
     // console.log(filmIndex);
 
     if (filmIndex === -1) {
       console.log(`Adding ${film.title} to faves`);
-      faves.push(film)
-      this.setState({
-        faves: faves
-      })
-
+      faves.push(film);
     } else {
       console.log(`Removing ${film.title} from faves`);
       // console.log(faves);
-      
-      const changedFaveList = faves.splice(filmIndex,1)
+      faves.splice(filmIndex,1);
       // console.log(changedFaveList);
-      
-      this.setState({
-        faves: faves
-      })
     }
+
+    // console.log(faves);
+  
+    this.setState({faves});
   }
 
   handleDetailsClick = (film) => {
@@ -51,7 +47,7 @@ class App extends Component {
     this.setState =({
       current:  currentMovie
     })  
-}
+  }
 
   render() {
     return (
