@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Posterimage from './PosterImage';
+import Fave from './Fave';
 
 
 class FilmRow extends Component {
@@ -12,7 +13,7 @@ class FilmRow extends Component {
                 <Posterimage poster={this.props.film.poster_path}/>
 
                 <div className="film-summary">
-                    <div>film-summary</div>
+                    <div><Fave/>film-summary</div>
                     <h1>{this.props.film.title}</h1>
 
                     <p>{(new Date(this.props.film.release_date).getFullYear())}</p>
