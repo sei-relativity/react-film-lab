@@ -16,23 +16,24 @@ class App extends Component {
   }
 
   handleFaveToggle = (film) => {
-    console.log(`entering handleFaveTollge : ${film}`);
     const faves = this.state.faves.slice();
     const filmIndex = faves.indexOf(film);
     if (filmIndex === -1) {
       console.log('Adding' + film);
       faves.push(film);
+      this.setState({ faves })
     } else {
       console.log('Removing' + film);
       faves.splice(filmIndex, 1);
+      this.setState({ faves })
     }
-    this.setState({ faves })
+    
   };
 
   render() {
     return (
       <div className="film-library">
-        <FilmListing movies={this.state.films} onFaveToggle={this.handleFaveToggle} />
+        <FilmListing movies={this.state.films} faves={this.state.faves} onFaveToggle={this.handleFaveToggle} />
         <FilmDetails movies={this.state.faves}></FilmDetails>
       </div>
     );
