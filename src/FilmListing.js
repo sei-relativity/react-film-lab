@@ -34,9 +34,7 @@ class FilmListing extends Component {
     const filterStatusAll = this.state.filter === "all" ? "is-active" : "";
     const filterStatusFaves = this.state.filter === "faves" ? "is-active" : "";
 
-    const displayedFilms = this.state.filter === "all" ? allFilms : allFilms;
-    console.log(displayedFilms, this.props.favesProp, this.state.filter);
-
+    const displayedFilms = (this.state.filter === "all") ? allFilms : allFilms.filter(film => {return film.props.isFaveProp});
 
     return (
       <div className="film-list">
