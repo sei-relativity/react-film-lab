@@ -7,18 +7,51 @@ import './App.css';
 class App extends Component {
   constructor (props){
     super (props)
+
+
     this.state = {
       films: TMDB.films,
       faves: [],
       current: {}
     }
+
+    this.handleFaveToggle = this.handleFaveToggle.bind(this);
+
   }
+
+  handleFaveToggle = (film) => {
+    // const faves = this.state.faves.slice(0);
+    const faves = [...this.state.faves]
+    const filmIndex = faves.indexOf(film);
+    // console.log(filmIndex);
+
+    if (filmIndex === -1) {
+      console.log(`Adding ${film.title} to faves`);
+      faves.push(film)
+      this.setState({
+        faves: faves
+      })
+
+    } else {
+      console.log(`Removing ${film.title} from faves`);
+      // console.log(faves);
+      
+      const changedFaveList = faves.splice(filmIndex,1)
+      // console.log(changedFaveList);
+      
+      this.setState({
+        faves: faves
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App" >
         <div className="film-library">
           <FilmListing films={this.state.films}
-           faves={this.state.faves} />
+            faves = {this.state.faves}
+            onFaveToggle = {this.handleFaveToggle}/>
 
           <FilmDetails film={this.props.current} />
         </div>
