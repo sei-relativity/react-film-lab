@@ -14,9 +14,7 @@ class FilmRow extends Component {
     }
     handleDetailsClick = (film) => {
         console.log("Fetching details for " + film.title);
-
     }
-
     render() {
         return (
             <div className="film-row" onClick={() => this.handleDetailsClick(this.props.film)}>
@@ -25,7 +23,7 @@ class FilmRow extends Component {
                     <h1>{this.props.film.title}</h1>
                     <p>{this.state.release_date.getFullYear()}</p>
                 </div>
-                <Fave />
+                <Fave onFaveToggle={this.props.onFaveToggle} isFave={} />
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilmRow from './FilmRow';
+import Fave from './Fave';
 class FilmListing extends Component {
     constructor(props) {
         super(props);
@@ -13,8 +14,10 @@ class FilmListing extends Component {
         })
     }
     render() {
-        const allMovies = this.props.movies.films.map(((item, index) => {
-            return <FilmRow film={item} key={index} />
+        const allMovies = this.props.movies.map(((item) => {
+            return <FilmRow film={item} key={item.id} 
+            onFaveToggle={() => this.props.onFaveToggle(item)}
+            isFave={this.props.Fave}/>
         }))
 
         return (
@@ -23,7 +26,7 @@ class FilmListing extends Component {
                 <div className="film-list-filters">
                     <div className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('all')}>
                         ALL
-                        <span className="section-count">{this.props.movies.films.length}</span>
+                        <span className="section-count">{this.props.movies.length}</span>
                     </div>
                     <div className="film-list-filter" onClick={() => this.handleFilterClick('faves')}>
                         FAVES
