@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 
 class Fave extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      // isFave: false
-    };
-  }
-
   handleClick = event => {
     event.stopPropagation();
     console.log("handling Fave click!");
@@ -17,8 +8,9 @@ class Fave extends Component {
   };
 
   render() {
-
-    const isFaveStatus = this.props.isFaveProp ? "remove_from_queue" : "add_to_queue";
+    const isFaveStatus = this.props.isFaveProp
+      ? "remove_from_queue"
+      : "add_to_queue";
 
     return (
       <>

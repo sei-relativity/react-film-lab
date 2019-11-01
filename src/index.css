@@ -227,3 +227,10 @@ figure {
   color: white;
   background-color: lightseagreen;
 }
+
+progress {
+  background-color: #7f7f7f;
+  /* width: 10%; */
+  height: 10px;
+  opacity: 0.75;
+}

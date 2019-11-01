@@ -34,7 +34,12 @@ class FilmListing extends Component {
     const filterStatusAll = this.state.filter === "all" ? "is-active" : "";
     const filterStatusFaves = this.state.filter === "faves" ? "is-active" : "";
 
-    const displayedFilms = (this.state.filter === "all") ? allFilms : allFilms.filter(film => {return film.props.isFaveProp});
+    const displayedFilms =
+      this.state.filter === "all"
+        ? allFilms
+        : allFilms.filter(film => {
+            return film.props.isFaveProp;
+          });
 
     return (
       <div className="film-list">
@@ -45,7 +50,9 @@ class FilmListing extends Component {
             onClick={() => this.handleFilterClick("all")}
           >
             ALL
-            <span className="section-count">{this.props.movies.films.length}</span>
+            <span className="section-count">
+              {this.props.movies.films.length}
+            </span>
           </div>
           <div
             className={`film-list-filter ${filterStatusFaves}`}
@@ -56,9 +63,6 @@ class FilmListing extends Component {
           </div>
         </div>
         {displayedFilms}
-{/*
-{allFilms} */}
-
       </div>
     );
   }
