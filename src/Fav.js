@@ -1,19 +1,22 @@
 import React, { Component } from "react";
-import { tsConstructorType } from "@babel/types";
+// import { tsConstructorType } from "@babel/types";
 
 class Fav extends Component {
 
-  handleClick = (e) => {
-   
 
-(console.log ("handling Fave click!"));
-e.stopPropagation()
-    }
+  handleClick = (e) => {
+    e.stopPropagation()
+    console.log('Handling Fav click!')
+this.props.onFavToggle()
+  }
 
   render() {
+    const isFav = this.props.isFav ? 'remove_from_queue' : 'add_to_queue'
+    const message = this.props.isFav ? "remove_from_queue" : "add_to_queue"
+   
     return (
-      <div className="film-row-fave add_to_queue">
-        <p className="material-icons" onClick={this.handleClick}>add_to_queue</p>
+      <div className={`film-row-fave ${isFav}`} onClick={this.handleClick}>
+        <p className="material-icons">{message}</p>
       </div>
     );
   }

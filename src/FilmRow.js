@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Fav from './Fav';
 
+
 class FilmRow extends Component {
   handleDetailsClick =(film) =>{
     console.log(`Fetching details ${film.title}`);
