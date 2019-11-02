@@ -3,8 +3,15 @@ import FilmRow from './FilmRow';
 
 
 class FilmListing extends Component {
+    constructor(props) {
+        super(props) ; 
+        this.state= {
+        filter: 'all' } 
+    }
     handleFilterClick = (filter) => {
-        console.log("Setting filter to"+filter); 
+        console.log("Setting filter to "+filter); 
+        this.setState({filter: filter})
+
     }
 
 
@@ -16,21 +23,22 @@ class FilmListing extends Component {
 
 
         return(
-            <div className="film-list">
-            <h1 className="section-title">FILMS</h1>
-            <div className="film-list-filters">
-                <div className="film-list-filter">
-                    ALL
-                    <span className="section-count">{this.props.films.length}</span>
-                </div>
-                <div className="film-list-filter">
-                    FAVES
-                    <span className="section-count">0</span>
-                </div>
-            </div>
-        
-            {allFilms}
+           <div className="film-list">
+    <h1 className="section-title">FILMS</h1>
+    <div className="film-list-filters">
+        <div onClick={() => this.handleFilterClick('all')} 
+         className={`film-list-filter ${this.state.filter === 'all' ? 'is-active' : ''}`}>
+            ALL
         </div>
+        <div onClick={() => this.handleFilterClick('faves')}
+         className={`film-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`}>
+            FAVES
+            <span className="section-count">0</span>
+        </div>
+    </div>
+
+    {allFilms}
+</div>
         )
     }
 }  
