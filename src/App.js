@@ -7,10 +7,11 @@ import TMDB from "./TMDB";
 
 function App() {
   return (
+    
     <div className="film-library">
       <FilmListing movies={TMDB} />
       <FilmDetails movies={TMDB} />
-      <div className="film-row"></div>
+    
     </div>
   );
 }
