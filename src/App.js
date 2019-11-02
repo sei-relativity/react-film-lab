@@ -1,26 +1,9 @@
-// import React from 'react';
-// // import logo from './logo.svg';
-// import './App.css';
-// import FilmListing from './FilmListing';
-// import FilmDetails from './FilmDetails';
-// import TMDB from './TMDB';
-
-// function App() {
-//   return (
-//     <div className="film-library">
-//       <FilmListing films={TMDB} />
-//       <FilmDetails films={TMDB} />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { Component } from 'react';
 import './App.css';
 import FilmDetails from './FilmDetails.js';
 import FilmListing from './FilmListing.js';
 import TMDB from './TMDB.js';
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -46,10 +29,19 @@ class App extends Component {
     }
     this.setState({ faves });
   }
-  handleDetailsClick = (title) => {
-    console.log("Fetching details for " + title);
-    this.setState({
-      current: title
+  handleDetailsClick = (film) => {
+    console.log("Fetching details for " + film.title);
+    const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
+    // const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
+
+    axios({
+      method: 'GET',
+      url: url
+    }).then(response => {
+      console.log(response) // take a look at what you get back!
+      console.log(`Fetching details for ${film.title}`);
+      console.log(response.data)
+      this.setState({ current: response.data })
     })
   }
 

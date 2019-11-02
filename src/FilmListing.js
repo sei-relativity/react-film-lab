@@ -21,7 +21,7 @@ class FilmListing extends Component {
         // console.log(this.props.faves.includes(this.props.films[0]), this.props.films)
         const allFilms = this.props.films.map((film, index) => {
             return (
-                <FilmRow handleDetailsClick={() => this.props.handleDetailsClick(film.title)} isFave={(this.props.faves.includes(film) <= 0) ? false : true} onFaveToggle={() => this.props.onFaveToggle(film)} title={film.title} poster_path={film.poster_path} key={index} year={(new Date(film.release_date)).getFullYear()} />
+                <FilmRow handleDetailsClick={() => this.props.handleDetailsClick(film)} isFave={(this.props.faves.includes(film) <= 0) ? false : true} onFaveToggle={() => this.props.onFaveToggle(film)} title={film.title} poster_path={film.poster_path} key={index} year={(new Date(film.release_date)).getFullYear()} />
 
             )
         })
